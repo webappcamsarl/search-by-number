@@ -1,0 +1,55 @@
+<form action="/search" method="GET">
+	<input type="text" name="phone" placeholder="Enter phone number">
+		<button type="submit">Search</button>
+</form>
+<!-- starting of javascript code snippet-->
+<!--
+
+document.querySelector('form').addEventListener('submit', function(e)){
+	e.preventDefault();
+	let phoneNumber = document.querySelector('input[name = "phone"]').value;
+	//perform search using the phone number
+	search(phoneNumber);
+});
+
+function search(phoneNumber){
+	fetch('/search?phone = $'{phoneNumber}').then(response => response.json()).then(data => {
+	//Display the retrieved information(full name, location, ID card) on the same page
+	displayInformation(data);
+	})
+	.catch(error => {
+		console.error('Error:', error);
+	});
+}
+
+function displayInformation(data){
+	//Display the retrieved information on the page
+	//For example, update the UI with the full name, location, and ID card details
+}
+
+<!-- starting server side code snippet with NodeJs to handle the search request and retrieve information based on the phone number -->
+<!--
+
+const express = require('express');
+const app = express();
+
+app.get('/search', (req, res) => {
+	let phoneNumber = req.query.phone; // perform a search using the phone number to retrieve full name, location and ID card information
+	let userInfo = retrieveUserInfo(phoneNumber);
+	res.json(userInfo);
+	}
+);
+
+function retrieveUserInfo(phoneNumber){
+	// implement a function to retrieve full name, location and ID card information based on phone number
+	// This could involve querying a database or making an API call to third party service
+	// return the retrieved information as an object 
+	
+	return{
+		fullName: 'John Doe',
+		location: 'Yaounde',
+		idCard: '1234567890'
+	};
+}
+
+app.listen(3000, () => console.log('Server running on port 3000'));		-->
